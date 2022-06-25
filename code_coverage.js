@@ -31,7 +31,7 @@ const puppeteer = require('puppeteer');
 const chalk = require('chalk');
 const Table = require('cli-table');
 
-const URL = process.env.URL || 'https://www.chromestatus.com/features';
+const URL = process.env.URL || 'https://illuccixhcp.com/';
 
 const EVENTS = [
   'domcontentloaded',

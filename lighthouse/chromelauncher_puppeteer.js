@@ -31,7 +31,7 @@ const util = require('util');
 
 (async() => {
 
-const URL = 'https://www.chromestatus.com/features';
+const URL = 'https://illuccixhcp.com/';
 
 const opts = {
   chromeFlags: ['--headless'],

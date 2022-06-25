@@ -24,7 +24,7 @@
 const chalk = require('chalk');
 const puppeteer = require('puppeteer');
 
-const URL = process.env.URL || 'https://www.chromestatus.com/features';
+const URL = process.env.URL || 'https://illuccixhcp.com/';
 
 (async() => {
 

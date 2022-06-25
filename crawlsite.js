@@ -41,7 +41,7 @@ const util = require('util');
 const puppeteer = require('puppeteer');
 const sharp = require('sharp');
 
-const URL = process.env.URL || 'https://news.polymer-project.org/';
+const URL = process.env.URL || 'https://illuccixhcp.com/';
 const SCREENSHOTS = process.argv.includes('--screenshots');
 const DEPTH = parseInt(process.env.DEPTH) || 2;
 const VIEWPORT = SCREENSHOTS ? {width: 1028, height: 800, deviceScaleFactor: 2} : null;
@@ -94,6 +94,7 @@ function collectAllSameOriginAnchorsDeep(sameOrigin = true) {
   const filtered = allElements
     .filter(el => el.localName === 'a' && el.href) // element is an anchor with an href.
     .filter(el => el.href !== location.href) // link doesn't point to page's own URL.
+    .filter(el => el.href !== 'https://illuccixhcp.com/wp-content/uploads/illuccix-prescribing-information.pdf') // link doesn't point to a PDF.
     .filter(el => {
       if (sameOrigin) {
         return new URL(location).origin === new URL(el.href).origin;

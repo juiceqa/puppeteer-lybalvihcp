@@ -39,7 +39,7 @@ const {URL} = require('url');
 
 (async() => {
 
-const url = 'https://www.chromestatus.com/features';
+const url = 'https://illuccixhcp.com/';
 
 // Use Puppeteer to launch headless Chrome.
 const browser = await puppeteer.launch({headless: true});

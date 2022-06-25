@@ -20,7 +20,7 @@
 
 const puppeteer = require('puppeteer');
 
-const URL = process.env.URL || 'https://www.chromestatus.com/features';
+const URL = process.env.URL || 'https://illuccixhcp.com/';
 
 puppeteer.launch().then(async browser => {
   const page = await browser.newPage();
