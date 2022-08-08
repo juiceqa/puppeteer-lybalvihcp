@@ -20,11 +20,11 @@
 
 const puppeteer = require('puppeteer');
 
-const URL = process.env.URL || 'https://illuccixhcp.com/';
+const URL = process.env.URL || 'https://stagelybhcp_auth:P6%260erUu@stage.lybalvihcp.com/';
 
 puppeteer.launch().then(async browser => {
-  const page = await browser.newPage();
-  const response = await page.goto(URL);
-  console.log(await response.text());
-  await browser.close();
+    const page = await browser.newPage();
+    const response = await page.goto(URL);
+    console.log(await response.text());
+    await browser.close();
 });

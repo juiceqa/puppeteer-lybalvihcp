@@ -31,26 +31,26 @@ const util = require('util');
 
 (async() => {
 
-const URL = 'https://illuccixhcp.com/';
+        const URL = 'https://stagelybhcp_auth:P6%260erUu@stage.lybalvihcp.com/';
 
-const opts = {
-  chromeFlags: ['--headless'],
-  logLevel: 'info',
-  output: 'json'
-};
+        const opts = {
+            chromeFlags: ['--headless'],
+            logLevel: 'info',
+            output: 'json'
+        };
 
-// Launch chrome using chrome-launcher.
-const chrome = await chromeLauncher.launch(opts);
-opts.port = chrome.port;
+        // Launch chrome using chrome-launcher.
+        const chrome = await chromeLauncher.launch(opts);
+        opts.port = chrome.port;
 
-// Connect to it using puppeteer.connect().
-const resp = await util.promisify(request)(`http://localhost:${opts.port}/json/version`);
-const {webSocketDebuggerUrl} = JSON.parse(resp.body);
-const browser = await puppeteer.connect({browserWSEndpoint: webSocketDebuggerUrl});
+        // Connect to it using puppeteer.connect().
+        const resp = await util.promisify(request)(`http://localhost:${opts.port}/json/version`);
+        const { webSocketDebuggerUrl } = JSON.parse(resp.body);
+        const browser = await puppeteer.connect({ browserWSEndpoint: webSocketDebuggerUrl });
 
-// Run Lighthouse.
-const {lhr} = await lighthouse(URL, opts, null);
-console.log(`Lighthouse scores: ${Object.values(lhr.categories).map(c => `${c.title} ${c.score}`).join(', ')}`);
+        // Run Lighthouse.
+        const { lhr } = await lighthouse(URL, opts, null);
+        console.log(`Lighthouse scores: ${Object.values(lhr.categories).map(c => `${c.title} ${c.score}`).join(', ')}`);
 
 await browser.disconnect();
 await chrome.kill();

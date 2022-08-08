@@ -35,48 +35,48 @@ const puppeteer = require('puppeteer');
 const lighthouse = require('lighthouse');
 // const ReportGenerator = require('lighthouse/lighthouse-core/report/v2/report-generator');
 const fs = require('fs');
-const {URL} = require('url');
+const { URL } = require('url');
 
 (async() => {
 
-const url = 'https://illuccixhcp.com/';
+    const url = 'https://stagelybhcp_auth:P6%260erUu@stage.lybalvihcp.com/';
 
-// Use Puppeteer to launch headless Chrome.
-const browser = await puppeteer.launch({headless: true});
-const remoteDebugPort =(new URL(browser.wsEndpoint())).port;
+    // Use Puppeteer to launch headless Chrome.
+    const browser = await puppeteer.launch({ headless: true });
+    const remoteDebugPort = (new URL(browser.wsEndpoint())).port;
 
-// Watch for Lighthouse to open url, then customize network conditions.
-// Note: re-establishes throttle settings every time LH reloads the page. Shooooould be ok :)
-browser.on('targetchanged', async target => {
-  const page = await target.page();
+    // Watch for Lighthouse to open url, then customize network conditions.
+    // Note: re-establishes throttle settings every time LH reloads the page. Shooooould be ok :)
+    browser.on('targetchanged', async target => {
+        const page = await target.page();
 
-  if (page && page.url() === url) {
-    const client = await page.target().createCDPSession();
-    // await client.send('Network.enable'); // Already enabled by pptr.
-    await client.send('Network.emulateNetworkConditions', {
-      offline: false,
-      // values of 0 remove any active throttling. crbug.com/456324#c9
-      latency: 800,
-      downloadThroughput: Math.floor(1.6 * 1024 * 1024 / 8), // 1.6Mbps
-      uploadThroughput: Math.floor(750 * 1024 / 8) // 750Kbps
+        if (page && page.url() === url) {
+            const client = await page.target().createCDPSession();
+            // await client.send('Network.enable'); // Already enabled by pptr.
+            await client.send('Network.emulateNetworkConditions', {
+                offline: false,
+                // values of 0 remove any active throttling. crbug.com/456324#c9
+                latency: 800,
+                downloadThroughput: Math.floor(1.6 * 1024 * 1024 / 8), // 1.6Mbps
+                uploadThroughput: Math.floor(750 * 1024 / 8) // 750Kbps
+            });
+        }
     });
-  }
-});
 
-// Lighthouse opens url and tests it.
-// Note: Possible race with Puppeteer observing the tab opening using `targetchanged` above.
-const {report} = await lighthouse(url, {
-  port: remoteDebugPort,
-  output: 'html',
-  logLevel: 'info',
-  disableNetworkThrottling: true,
-  //disableCpuThrottling: true,
-  //disableDeviceEmulation: true,
-});
+    // Lighthouse opens url and tests it.
+    // Note: Possible race with Puppeteer observing the tab opening using `targetchanged` above.
+    const { report } = await lighthouse(url, {
+        port: remoteDebugPort,
+        output: 'html',
+        logLevel: 'info',
+        disableNetworkThrottling: true,
+        //disableCpuThrottling: true,
+        //disableDeviceEmulation: true,
+    });
 
-// Save html report.
-fs.writeFileSync('results.html', report);
-console.log('Results written.');
+    // Save html report.
+    fs.writeFileSync('results.html', report);
+    console.log('Results written.');
 
-await browser.close();
+    await browser.close();
 })();
