@@ -23,12 +23,12 @@
  *
  * Usage:
  *   node crawlsite.js
- *   URL=https://stagelybhcp_auth_P6%260erUu@stage.lybalvihcp.com node crawlsite.js
- *   URL=https://stagelybhcp_auth_P6%260erUu@stage.lybalvihcp.com node crawlsite.js --screenshots
+ *   URL=https://stagelybhcp_auth:P6%260erUu@stage.lybalvihcp.com node crawlsite.js
+ *   URL=https://stagelybhcp_auth:P6%260erUu@stage.lybalvihcp.com node crawlsite.js --screenshots
  *
  * Then open the visualizer in a browser:
  *   http://localhost:8080/html/d3tree.html
- *   http://localhost:8080/html/d3tree.html?url=output/https___stagelybhcp_auth_P6%260erUu@stage.lybalvihcp.com_/crawl.json
+ *   http://localhost:8080/html/d3tree.html?url=output/https___stagelybhcp_auth:P6%260erUu@stage.lybalvihcp.com_/crawl.json
  *
  *Start Server:
  *   node server.js
