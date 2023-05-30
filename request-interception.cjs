@@ -17,7 +17,7 @@ const puppeteer = require('puppeteer');
         console.log('<<', response.status(), response.url(), response.headers())
     })
 
-    await page.goto('https://stagelybhcp_auth:P6%260erUu@stage.lybalvihcp.com/')
+    await page.goto('https://test-trudhesahcp.pantheonsite.io/')
 
     await page.screenshot({ path: 'lybalvihcpstaging.png' })
 

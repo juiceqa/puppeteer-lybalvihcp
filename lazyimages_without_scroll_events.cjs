@@ -103,7 +103,7 @@ const argv = require('yargs')
     //   });
     // }
     async function screenshotPageWithoutScroll(url) {
-        //    const url = 'https://stagelybhcp_auth:P6%260erUu@stage.lybalvihcp.com//'
+        //    const url = 'https://test-trudhesahcp.pantheonsite.io//'
 
         const context = await browser.createIncognitoBrowserContext();
 
@@ -137,7 +137,7 @@ const argv = require('yargs')
     }
 
     async function screenshotPageAfterScroll(url) {
-        //   const url = 'https://stagelybhcp_auth:P6%260erUu@stage.lybalvihcp.com//'
+        //   const url = 'https://test-trudhesahcp.pantheonsite.io//'
         const context = await browser.createIncognitoBrowserContext();
 
         const page = await context.newPage();

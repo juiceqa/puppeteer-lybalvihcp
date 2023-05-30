@@ -31,7 +31,7 @@ const puppeteer = require('puppeteer');
 const chalk = require('chalk');
 const Table = require('cli-table');
 
-const URL = process.env.URL || 'https://stagelybhcp_auth:P6%260erUu@stage.lybalvihcp.com/';
+const URL = process.env.URL || 'https://test-trudhesahcp.pantheonsite.io/';
 
 const EVENTS = [
     'domcontentloaded',

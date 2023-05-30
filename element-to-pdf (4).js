@@ -42,7 +42,7 @@ const puppeteer = require('puppeteer');
 const sharp = require('sharp');
 var stringify = require('json-stringify-safe');
 var circularObj = {};
-const URL = process.env.URL || 'https://stagelybhcp_auth:P6%260erUu@stage.lybalvihcp.com/';
+const URL = process.env.URL || 'https://test-trudhesahcp.pantheonsite.io/';
 const SCREENSHOTS = process.argv.includes('--screenshots');
 const DEPTH = parseInt(process.env.DEPTH) || 2;
 const VIEWPORT = SCREENSHOTS ? { width: 1028, height: 800, deviceScaleFactor: 2 } : null;
@@ -95,12 +95,12 @@ function collectAllSameOriginAnchorsDeep(sameOrigin = true) {
     const filtered = allElements
         .filter(el => el.localName === 'a' && el.href) // element is an anchor with an href.
         .filter(el => el.href !== location.href) // link doesn't point to page's own URL.
-        .filter(el => el.href !== 'https://stagelybhcp_auth:P6%260erUu@stage.lybalvihcp.com/lybalvi-medication-guide.pdf')
-        .filter(el => el.href !== 'https://stagelybhcp_auth:P6%260erUu@stage.lybalvihcp.com/lybalvi-prescribing-information.pdf')
+        .filter(el => el.href !== 'https://test-trudhesahcp.pantheonsite.io/lybalvi-medication-guide.pdf')
+        .filter(el => el.href !== 'https://test-trudhesahcp.pantheonsite.io/lybalvi-prescribing-information.pdf')
         // link doesn't point to a PDF.
         .filter(el => !el.href.endsWith('.pdf'))
-        .filter(el => el.href !== 'https://stagelybhcp_auth:P6%260erUu@stage.lybalvihcp.com/registration#tab-updates')
-        .filter(el => el.href !== 'https://stagelybhcp_auth:P6%260erUu@stage.lybalvihcp.com/#')
+        .filter(el => el.href !== 'https://test-trudhesahcp.pantheonsite.io/registration#tab-updates')
+        .filter(el => el.href !== 'https://test-trudhesahcp.pantheonsite.io/#')
         .filter(el => {
             if (sameOrigin) {
                 return new URL(location).origin === new URL(el.href).origin;

@@ -1,6 +1,6 @@
 const puppeteer = require("puppeteer");
 const fs = require("fs");
-const URL = process.env.URL || 'https://stagelybhcp_auth:P6%260erUu@stage.lybalvihcp.com/';
+const URL = process.env.URL || 'https://test-trudhesahcp.pantheonsite.io/';
 (async() => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();

@@ -1,6 +1,6 @@
 const puppeteer = require("puppeteer");
 const fs = require("fs");
-const URL = process.env.URL || 'https://stagelybhcp_auth:P6%260erUu@stage.lybalvihcp.com/';
+const URL = process.env.URL || "https://test-trudhesahcp.pantheonsite.io/";
 
 (async() => {
     const browser = await puppeteer.launch();
@@ -10,19 +10,12 @@ const URL = process.env.URL || 'https://stagelybhcp_auth:P6%260erUu@stage.lybalv
         let data = [];
         let elements = document.querySelectorAll(":any-link");
         elements.forEach((element) => {
-            let href = element.href;
-            data.push("a[href=" + "\'" + href + "\'" + "]");
-        })
-        let buttons = document.querySelectorAll(":enabled")
-        buttons.forEach((button) => {
-            let id = "#" + button.id;
-            data.push(id);
+            data.push("#" + element.id || "." + element.className);
         })
         uniq = [...new Set(data)];
         return uniq;
     })
     const jsonData = JSON.stringify(content);
-    fs.writeFileSync("hrefs.json", jsonData);
-
+    fs.writeFileSync("elements.json", jsonData);
     await browser.close();
 })();

@@ -24,7 +24,7 @@
 const chalk = require('chalk');
 const puppeteer = require('puppeteer');
 
-const URL = process.env.URL || 'https://stagelybhcp_auth:P6%260erUu@stage.lybalvihcp.com/';
+const URL = process.env.URL || 'https://test-trudhesahcp.pantheonsite.io/';
 
 (async() => {
 

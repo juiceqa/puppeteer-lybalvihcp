@@ -31,7 +31,7 @@ const util = require('util');
 
 (async() => {
 
-        const URL = 'https://stagelybhcp_auth:P6%260erUu@stage.lybalvihcp.com/';
+        const URL = 'https://test-trudhesahcp.pantheonsite.io/';
 
         const opts = {
             chromeFlags: ['--headless'],

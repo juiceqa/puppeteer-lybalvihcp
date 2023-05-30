@@ -39,7 +39,7 @@ const { URL } = require('url');
 
 (async() => {
 
-    const url = 'https://stagelybhcp_auth:P6%260erUu@stage.lybalvihcp.com/';
+    const url = 'https://test-trudhesahcp.pantheonsite.io/';
 
     // Use Puppeteer to launch headless Chrome.
     const browser = await puppeteer.launch({ headless: true });

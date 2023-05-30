@@ -6,7 +6,7 @@ const fs = require('fs')
 (async() => {
     const browser = await puppeteer.launch()
     const page = await browser.newPage()
-    await page.goto('https://stagelybhcp_auth:P6%260erUu@stage.lybalvihcp.com/')
+    await page.goto('https://test-trudhesahcp.pantheonsite.io/')
     const url = await page.$eval('img', (el) => el.src)
 
     const response = await axios.get(url)

@@ -28,7 +28,7 @@ const fetch = require('node-fetch');
 const chalk = require('chalk');
 const caniuseDB = require('caniuse-db/data.json').data;
 
-const url = process.env.URL || 'https://stagelybhcp_auth:P6%260erUu@stage.lybalvihcp.com/';
+const url = process.env.URL || 'https://test-trudhesahcp.pantheonsite.io/';
 
 const GOOGLE_SEARCH_CHROME_VERSION = process.env.CHROME_VERSION || 100;
 

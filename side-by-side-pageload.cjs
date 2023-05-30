@@ -72,9 +72,8 @@ const argv = require('yargs')
     .argv;
 
 const urls = argv.url.length ? argv.url : [
-    'https://stagelybhcp_auth:P6%260erUu@stage.lybalvihcp.com//',
-    'https://www.latudahcp.com/',
-    'https://www.aristadahcp.com/'
+    'https://test-trudhesahcp.pantheonsite.io/',
+    'https://www.trudhesa.com/',
 ];
 
 const CENTER_WINDOWS_ON_SCREEN = argv.center;
@@ -82,7 +81,7 @@ const SPACE_BETWEEN_WINDOWS = argv.space;
 const MOBILE = argv.mobile;
 const THROTTLE = argv.throttle;
 const TIMEOUT_AFTER_LOAD = argv.timeout;
-const DEFAULT_VIEWPORT = { width: 1280, height: 1000, deviceScaleFactor: 2 };
+const DEFAULT_VIEWPORT = { width: 1280, height: 1024, deviceScaleFactor: 1 };
 
 const sleep = (timeout) => new Promise(r => setTimeout(r, timeout));
 
